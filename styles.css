@@ -134,6 +134,8 @@ h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -.01em; }
 .bike-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .bike-media .bike-svg { width: 82%; height: auto; }
 .bike-media.has-photo .bike-svg { display: none; }
+.bike-media.has-photo img { object-fit: contain; padding: 4% 5%; mix-blend-mode: multiply; transition: transform .3s ease; }
+.bike-card:hover .bike-media.has-photo img { transform: scale(1.04); }
 .tint-yellow { background: var(--yellow-soft); } .tint-sky { background: var(--sky-soft); } .tint-rust { background: var(--rust-soft); }
 .bike-body { padding: 1.6rem 1.6rem 1.8rem; display: flex; flex-direction: column; flex: 1; }
 .bike-body h3 { font-size: 1.4rem; color: var(--indigo); }
