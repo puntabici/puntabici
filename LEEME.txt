@@ -1,0 +1,13 @@
+PUNTABICI - SITIO WEB
+
+FOTOS PROPIAS (opcional)
+Poné tus fotos dentro de la carpeta "img" con estos nombres exactos:
+  hero.jpg     -> foto grande del círculo de la portada
+  paseo.jpg    -> bicicleta de paseo
+  montana.jpg  -> bicicleta de montaña (sin ñ)
+  nino.jpg     -> bicicleta de niño (sin ñ)
+Si una foto no está, se muestra el dibujo en el estilo del logo.
+Recomendado: horizontales (4:3), de 1200 px de ancho, menos de 400 KB.
+
+TEXTOS
+Los textos en los 3 idiomas están en script.js (buscar la frase y cambiarla).
