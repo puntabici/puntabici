@@ -2,6 +2,24 @@
 (function () {
   "use strict";
 
+  // Siempre arrancar desde el principio de la página
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  window.scrollTo(0, 0);
+  window.addEventListener("pageshow", function (e) { if (e.persisted) window.scrollTo(0, 0); });
+
+  // Links del menú: bajan a la sección sin dejar "#seccion" en la dirección
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      var id = a.getAttribute("href").slice(1);
+      var target = id === "top" ? document.body : document.getElementById(id);
+      if (!target) return;
+      e.preventDefault();
+      if (id === "top") window.scrollTo({ top: 0, behavior: "smooth" });
+      else target.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  });
+
   var PHONES = ["59895542395", "59899007475"];
 
   var T = {
@@ -37,6 +55,7 @@
       "ex.note": "Consultanos por los extras al hacer tu reserva.",
       "zone.title": "Zona de entrega", "zone.sub": "Llevamos y retiramos las bicis en:",
       "zone.note": "¿Estás en otra zona? Escribinos y lo coordinamos.",
+      "zone.special": "También repartimos en Punta Ballena y José Ignacio, con un costo de envío especial.",
       "faq.title": "Preguntas frecuentes",
       "faq.q1": "¿Cómo reservo?", "faq.a1": "Escribinos por WhatsApp con las fechas, la cantidad y el tipo de bicis y la dirección de entrega. Te confirmamos la disponibilidad por ahí mismo.",
       "faq.q2": "¿Por cuánto tiempo puedo alquilar?", "faq.a2": "Por día, por semana o por toda la temporada. Vos elegís.",
@@ -83,6 +102,7 @@
       "ex.note": "Ask us about extras when you book.",
       "zone.title": "Delivery area", "zone.sub": "We deliver and pick up bikes in:",
       "zone.note": "Somewhere else? Message us and we'll work it out.",
+      "zone.special": "We also deliver to Punta Ballena and José Ignacio, with a special delivery fee.",
       "faq.title": "Frequently asked questions",
       "faq.q1": "How do I book?", "faq.a1": "Message us on WhatsApp with your dates, number and type of bikes and delivery address. We'll confirm availability right there.",
       "faq.q2": "How long can I rent for?", "faq.a2": "By the day, by the week or for the whole season. Your choice.",
@@ -129,6 +149,7 @@
       "ex.note": "Pergunte pelos extras ao fazer sua reserva.",
       "zone.title": "Área de entrega", "zone.sub": "Entregamos e buscamos as bikes em:",
       "zone.note": "Está em outra região? Fale com a gente e combinamos.",
+      "zone.special": "Também entregamos em Punta Ballena e José Ignacio, com uma taxa de entrega especial.",
       "faq.title": "Perguntas frequentes",
       "faq.q1": "Como faço a reserva?", "faq.a1": "Mande uma mensagem pelo WhatsApp com as datas, a quantidade e o tipo de bikes e o endereço de entrega. Confirmamos a disponibilidade por lá mesmo.",
       "faq.q2": "Por quanto tempo posso alugar?", "faq.a2": "Por dia, por semana ou pela temporada inteira. Você escolhe.",

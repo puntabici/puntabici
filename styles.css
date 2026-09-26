@@ -171,6 +171,10 @@ h1, h2, h3 { line-height: 1.12; margin: 0; letter-spacing: -.01em; }
 .zone-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 3rem; align-items: center; }
 .chips { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .6rem; }
 .chips li { background: #fff; border: 2px solid var(--indigo); color: var(--indigo); font-weight: 600; padding: .5rem 1rem; border-radius: 999px; }
+.chips li.chip-special { border-color: var(--rust); color: var(--rust); }
+.chips li.chip-special span { color: var(--yellow); }
+.zone-special { margin: 1.2rem 0 0; background: #fff; border-left: 5px solid var(--rust); border-radius: 12px; padding: .8rem 1rem; color: var(--ink); font-weight: 500; }
+.zone-special > span:first-child { color: var(--yellow); }
 .zone-note { color: var(--muted); margin: 1.4rem 0 0; }
 .map { border-radius: var(--radius); overflow: hidden; border: 6px solid #fff; box-shadow: var(--shadow); aspect-ratio: 4 / 3; background: var(--sky-soft); }
 .map iframe { width: 100%; height: 100%; border: 0; display: block; }
