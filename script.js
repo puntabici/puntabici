@@ -24,16 +24,16 @@
 
   var T = {
     es: {
-      "title": "PuntaBici | Alquiler de bicicletas a domicilio en Punta del Este",
+      "title": "Alquiler de bicicletas en Punta del Este a domicilio | Bike rental | PuntaBici",
       "nav.bikes": "Nuestras bicis", "nav.how": "Cómo funciona", "nav.extras": "Extras",
       "nav.zone": "Zona de entrega", "nav.faq": "Preguntas", "nav.contact": "Contacto",
       "cta.book": "Reservar", "cta.wa": "Reservá por WhatsApp", "cta.see": "Ver bicis",
       "cta.avail": "Consultar disponibilidad",
-      "hero.eyebrow": "Alquiler de bicis · Punta del Este",
+      "hero.eyebrow": "Alquiler de bicicletas · Punta del Este",
       "hero.title": 'Viví Punta <span class="u-yellow">en bici.</span>',
       "hero.lead": "Te llevamos la bici a tu casa, hotel o apartamento, y pasamos a buscarla cuando terminás. Para toda la familia.",
       "hero.b1": "Entrega a domicilio", "hero.b2": "Casco y candado", "hero.b3": "Bicis para niños",
-      "bikes.title": "Nuestras bicis", "bikes.sub": "Tres opciones para recorrer Punta a tu ritmo.",
+      "bikes.title": "Nuestras bicis", "bikes.sub": "Alquilá bicicletas de paseo, de montaña y de niño para recorrer Punta a tu ritmo.",
       "b.paseo.name": "Bicicleta de paseo",
       "b.paseo.desc": "Cómoda y fácil de subir. Ideal para la rambla, la península y las playas, a ritmo tranquilo.",
       "b.paseo.f1": "Cuadro bajo, fácil de subir", "b.paseo.f2": "Asiento ancho y acolchado", "b.paseo.f3": "Cambios y frenos a disco",
@@ -71,7 +71,7 @@
       "msg.nino": "¡Hola PuntaBici! Quiero consultar disponibilidad de una bicicleta de niño."
     },
     en: {
-      "title": "PuntaBici | Bike rental delivered to your door in Punta del Este",
+      "title": "Bike rental in Punta del Este | Rent a bike delivered | PuntaBici",
       "nav.bikes": "Our bikes", "nav.how": "How it works", "nav.extras": "Extras",
       "nav.zone": "Delivery area", "nav.faq": "FAQ", "nav.contact": "Contact",
       "cta.book": "Book now", "cta.wa": "Book on WhatsApp", "cta.see": "See bikes",
@@ -80,7 +80,7 @@
       "hero.title": 'Ride Punta <span class="u-yellow">by bike.</span>',
       "hero.lead": "We deliver the bike to your house, hotel or apartment, and pick it up when you're done. For the whole family.",
       "hero.b1": "Home delivery", "hero.b2": "Helmet & lock", "hero.b3": "Kids' bikes",
-      "bikes.title": "Our bikes", "bikes.sub": "Three options to explore Punta at your own pace.",
+      "bikes.title": "Our bikes", "bikes.sub": "Rent a city bike, mountain bike or kids' bike to explore Punta at your own pace.",
       "b.paseo.name": "City bike",
       "b.paseo.desc": "Comfortable and easy to get on. Perfect for the promenade, the peninsula and the beaches, at an easy pace.",
       "b.paseo.f1": "Low step-through frame", "b.paseo.f2": "Wide padded seat", "b.paseo.f3": "Gears and disc brakes",
@@ -118,7 +118,7 @@
       "msg.nino": "Hi PuntaBici! I'd like to check availability for a kids' bike."
     },
     pt: {
-      "title": "PuntaBici | Aluguel de bicicletas com entrega em Punta del Este",
+      "title": "Aluguel de bicicletas em Punta del Este com entrega | PuntaBici",
       "nav.bikes": "Nossas bikes", "nav.how": "Como funciona", "nav.extras": "Extras",
       "nav.zone": "Área de entrega", "nav.faq": "Dúvidas", "nav.contact": "Contato",
       "cta.book": "Reservar", "cta.wa": "Reserve pelo WhatsApp", "cta.see": "Ver bikes",
@@ -127,7 +127,7 @@
       "hero.title": 'Viva Punta <span class="u-yellow">de bike.</span>',
       "hero.lead": "Levamos a bike até sua casa, hotel ou apartamento, e buscamos quando você terminar. Para toda a família.",
       "hero.b1": "Entrega em domicílio", "hero.b2": "Capacete e cadeado", "hero.b3": "Bikes infantis",
-      "bikes.title": "Nossas bikes", "bikes.sub": "Três opções para conhecer Punta no seu ritmo.",
+      "bikes.title": "Nossas bikes", "bikes.sub": "Alugue bicicletas de passeio, mountain bikes e infantis para conhecer Punta no seu ritmo.",
       "b.paseo.name": "Bicicleta de passeio",
       "b.paseo.desc": "Confortável e fácil de subir. Ideal para a rambla, a península e as praias, com calma.",
       "b.paseo.f1": "Quadro baixo, fácil de subir", "b.paseo.f2": "Banco largo e acolchoado", "b.paseo.f3": "Marchas e freios a disco",
@@ -203,7 +203,9 @@
   // Idioma inicial: guardado > navegador > español
   var saved = store("pb-lang");
   var nav = (navigator.language || "es").slice(0, 2).toLowerCase();
-  setLang(saved || (T[nav] ? nav : "es"));
+  // Los buscadores (Google, etc.) siempre ven la versión en español
+  var isBot = /bot|crawl|spider|slurp|lighthouse/i.test(navigator.userAgent);
+  setLang(isBot ? "es" : (saved || (T[nav] ? nav : "es")));
 
   document.querySelectorAll(".lang button").forEach(function (b) {
     b.addEventListener("click", function () { setLang(b.getAttribute("data-lang")); });
