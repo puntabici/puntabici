@@ -236,5 +236,32 @@
     else { img.addEventListener("load", ok); img.addEventListener("error", fail); }
   });
 
+
+  // Slider de fotos de la portada
+  (function () {
+    var slides = document.querySelectorAll(".hero-slides img");
+    var dots = document.querySelectorAll(".slide-dots button");
+    if (slides.length < 2) return;
+    var i = 0, timer = null;
+    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    function show(n) {
+      slides[i].classList.remove("active"); dots[i] && dots[i].removeAttribute("aria-current");
+      i = (n + slides.length) % slides.length;
+      slides[i].classList.add("active"); dots[i] && dots[i].setAttribute("aria-current", "true");
+    }
+    function start() { if (!reduce) { stop(); timer = setInterval(function () { show(i + 1); }, 5000); } }
+    function stop() { if (timer) clearInterval(timer); timer = null; }
+    dots.forEach(function (d, n) { d.addEventListener("click", function () { show(n); start(); }); });
+    // Deslizar con el dedo en el celular
+    var x0 = null, art = document.querySelector(".hero-art");
+    art.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    art.addEventListener("touchend", function (e) {
+      if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; x0 = null;
+      if (Math.abs(dx) > 40) { show(dx < 0 ? i + 1 : i - 1); start(); }
+    });
+    document.addEventListener("visibilitychange", function () { document.hidden ? stop() : start(); });
+    start();
+  })();
+
   var y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
 })();
