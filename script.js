@@ -32,6 +32,7 @@
       "hero.eyebrow": "Alquiler de bicicletas · Punta del Este",
       "hero.title": 'Viví Punta <span class="u-yellow">en bici.</span>',
       "hero.lead": "Te llevamos la bici a tu casa, hotel o apartamento, y pasamos a buscarla cuando terminás. Para toda la familia.",
+      "hero.card.t": "Te la llevamos", "hero.card.s": "A tu casa, hotel o apartamento", "hero.pill": "3 tipos de bici",
       "hero.b1": "Entrega a domicilio", "hero.b2": "Casco y candado", "hero.b3": "Bicis para niños",
       "bikes.title": "Nuestras bicis", "bikes.sub": "Alquilá bicicletas de paseo, de montaña y de niño para recorrer Punta a tu ritmo.",
       "b.paseo.name": "Bicicleta de paseo",
@@ -79,6 +80,7 @@
       "hero.eyebrow": "Bike rental · Punta del Este",
       "hero.title": 'Ride Punta <span class="u-yellow">by bike.</span>',
       "hero.lead": "We deliver the bike to your house, hotel or apartment, and pick it up when you're done. For the whole family.",
+      "hero.card.t": "We deliver", "hero.card.s": "To your house, hotel or apartment", "hero.pill": "3 types of bikes",
       "hero.b1": "Home delivery", "hero.b2": "Helmet & lock", "hero.b3": "Kids' bikes",
       "bikes.title": "Our bikes", "bikes.sub": "Rent a city bike, mountain bike or kids' bike to explore Punta at your own pace.",
       "b.paseo.name": "City bike",
@@ -126,6 +128,7 @@
       "hero.eyebrow": "Aluguel de bikes · Punta del Este",
       "hero.title": 'Viva Punta <span class="u-yellow">de bike.</span>',
       "hero.lead": "Levamos a bike até sua casa, hotel ou apartamento, e buscamos quando você terminar. Para toda a família.",
+      "hero.card.t": "Levamos até você", "hero.card.s": "Na sua casa, hotel ou apartamento", "hero.pill": "3 tipos de bike",
       "hero.b1": "Entrega em domicílio", "hero.b2": "Capacete e cadeado", "hero.b3": "Bikes infantis",
       "bikes.title": "Nossas bikes", "bikes.sub": "Alugue bicicletas de passeio, mountain bikes e infantis para conhecer Punta no seu ritmo.",
       "b.paseo.name": "Bicicleta de passeio",
@@ -271,6 +274,8 @@
       slides[i].classList.remove("active"); dots[i] && dots[i].removeAttribute("aria-current");
       i = (n + slides.length) % slides.length;
       slides[i].classList.add("active"); dots[i] && dots[i].setAttribute("aria-current", "true");
+      var cap = document.getElementById("slideCaption");
+      if (cap) { cap.classList.remove("show"); void cap.offsetWidth; cap.textContent = slides[i].getAttribute("data-caption") || ""; cap.classList.add("show"); }
     }
     function start() { if (!reduce) { stop(); timer = setInterval(function () { show(i + 1); }, 5000); } }
     function stop() { if (timer) clearInterval(timer); timer = null; }

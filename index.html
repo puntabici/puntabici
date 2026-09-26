@@ -151,6 +151,9 @@
 
 <!-- ========== HERO ========== -->
 <section class="hero">
+  <span class="deco deco-1" aria-hidden="true"></span>
+  <span class="deco deco-2" aria-hidden="true"></span>
+  <span class="deco deco-3" aria-hidden="true"></span>
   <div class="wrap hero-grid">
     <div class="hero-copy">
       <p class="eyebrow" data-i18n="hero.eyebrow">Alquiler de bicicletas · Punta del Este</p>
@@ -171,22 +174,33 @@
     </div>
 
     <div class="hero-art has-photo">
-      <div class="ring ring-big" aria-hidden="true"></div>
+      <div class="hero-blob" aria-hidden="true"></div>
       <div class="ring ring-small" aria-hidden="true"></div>
+      <div class="ring ring-big" aria-hidden="true"></div>
       <!-- Fotos que se deslizan: hero-1.jpg ... hero-4.jpg (cuadradas) -->
       <div class="photo-circle hero-slides">
-        <img src="/hero-1.jpg" alt="Rambla de madera frente al mar en Punta del Este" class="active">
-        <img src="/hero-2.jpg" alt="Monumento La Mano en Playa Brava" loading="lazy">
-        <img src="/hero-3.jpg" alt="Vista aérea de la península de Punta del Este" loading="lazy">
-        <img src="/hero-4.jpg" alt="Atardecer frente a Isla Gorriti" loading="lazy">
-      </div>
-      <div class="slide-dots" role="group" aria-label="Fotos">
-        <button type="button" aria-label="Foto 1" aria-current="true"></button>
-        <button type="button" aria-label="Foto 2"></button>
-        <button type="button" aria-label="Foto 3"></button>
-        <button type="button" aria-label="Foto 4"></button>
+        <img src="/hero-1.jpg" alt="Rambla de madera frente al mar en Punta del Este" data-caption="Rambla de Punta del Este" class="active">
+        <img src="/hero-2.jpg" alt="Monumento La Mano en Playa Brava" data-caption="La Mano · Playa Brava" loading="lazy">
+        <img src="/hero-3.jpg" alt="Vista aérea de la península de Punta del Este" data-caption="Península de Punta del Este" loading="lazy">
+        <img src="/hero-4.jpg" alt="Atardecer frente a Isla Gorriti" data-caption="Atardecer · Isla Gorriti" loading="lazy">
       </div>
       <img class="hero-icon" src="/logo-icon.png" alt="" aria-hidden="true" width="360" height="357">
+
+      <div class="float-card" aria-hidden="true">
+        <span class="fc-ico"><svg viewBox="0 0 48 48"><path d="M6 30h22V16H6zM28 22h8l6 8v6H28"/><circle cx="14" cy="36" r="4"/><circle cx="34" cy="36" r="4"/></svg></span>
+        <span class="fc-text"><strong data-i18n="hero.card.t">Te la llevamos</strong><span data-i18n="hero.card.s">A tu casa, hotel o apartamento</span></span>
+      </div>
+      <div class="float-pill" aria-hidden="true"><span class="fp-dot"></span><span data-i18n="hero.pill">3 tipos de bici</span></div>
+
+      <div class="slide-meta">
+        <p class="slide-caption"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg><span id="slideCaption">Rambla de Punta del Este</span></p>
+        <div class="slide-dots" role="group" aria-label="Fotos">
+          <button type="button" aria-label="Foto 1" aria-current="true"></button>
+          <button type="button" aria-label="Foto 2"></button>
+          <button type="button" aria-label="Foto 3"></button>
+          <button type="button" aria-label="Foto 4"></button>
+        </div>
+      </div>
     </div>
   </div>
 </section>
