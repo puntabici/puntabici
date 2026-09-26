@@ -1,7 +1,7 @@
 PUNTABICI - SITIO WEB
 
 FOTOS PROPIAS (opcional)
-Poné tus fotos dentro de la carpeta "img" con estos nombres exactos:
+Poné tus fotos en la raíz del proyecto (junto a index.html) con estos nombres exactos:
   hero.jpg     -> foto grande del círculo de la portada
   paseo.jpg    -> bicicleta de paseo
   montana.jpg  -> bicicleta de montaña (sin ñ)
